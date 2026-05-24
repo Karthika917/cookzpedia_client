@@ -1,1 +1,88 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Fixed Sidebar */
+.sidebar-fixed {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 25%;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+/* Main content margin to accommodate fixed sidebar */
+#side {
+    min-height: 100vh;
+    position: fixed;
+    width: 25%;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+#side-content {
+    height: calc(100vh - 0px);
+    overflow-y: auto;
+    margin-left: 25%;
+}
+
+/* Sidebar Links */
+.sidebar-link {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.sidebar-link:hover {
+    color: #fff;
+    padding-left: 10px;
+    text-decoration: underline;
+}
+
+.sidebar-link i {
+    font-size: 18px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .sidebar-fixed {
+        position: relative;
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    #side {
+        position: relative;
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    #side-content {
+        margin-left: 0;
+        height: auto;
+    }
+}

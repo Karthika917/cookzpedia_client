@@ -1,0 +1,18 @@
+For modularizing angular components:
+ng g m module_name --routing   
+
+For creating new component 
+ng g c component_name
+
+Lazy loading
+------------
+Lazy loading is a performance optimization technique where non-critical resources (like images, videos, or scripts) are deferred and only loaded when the user actually needs them.
+
+Lazy loading in Angular refers to a technique where you only load the modules or components that are necessary for rendering the current view, rather than loading the entire application upfront.
+Advantages:
+-Faster initial loading
+-Reduced bandwidth
+-Efficient memory usage
+
+->To install highcharts-angular for angular-20
+npm i highcharts-angular@5.4.0

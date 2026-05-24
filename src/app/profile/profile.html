@@ -1,0 +1,72 @@
+<app-header/>
+
+<div class="container-fluid p-0" style="min-height: 70vh;">
+ <div class="bg-success">
+    <div class="container-fluid row">
+       <div class="col-5 d-flex justify-content-center">
+         <img [src]="profile?profile:`https://cdn-icons-png.flaticon.com/128/3033/3033143.png`" alt="profilepic" height="250px">
+       </div>
+       <div class="col-7 text-light">
+         <h3>{{username}}</h3>
+         <p style="text-align: justify;">
+             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque dolore libero aspernatur
+             officia dicta quod architecto mollitia fugit itaque sequi corrupti natus, voluptate
+             perferendis. Nulla, excepturi officia. Obcaecati, sint deleniti?
+             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi illo natus vero? Ratione velit,
+             optio fugit a, esse adipisci non quasi eos modi eum amet et molestias soluta incidunt quas.
+             Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore illum voluptatibus architecto,
+             accusantium rem, reiciendis, in assumenda cupiditate doloremque neque necessitatibus autem corporis!
+             Dicta explicabo in quasi inventore quo ratione.
+         </p>
+         <button class="btn btn-info my-3"  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">Edit Profile</button>
+       </div>
+    </div>
+
+ </div>
+ <div class="container-fluid">
+   <h6 class="display-4 m-2 text-center fs-1 fw-semibold">Download Recipes</h6>
+   @if(downloadsList.length >0){
+    <div class="d-flex justify-content-around gap-3 flex-wrap my-3">
+        @for(recipe of downloadsList; track $index){
+        <div class="card" style="width: 18rem; cursor: pointer;">
+          <img [src]="recipe.recipeImage" class="card-img-top" alt="recipe_img" height="300px" >
+          <div class="card-body">
+            <h5 class="card-title text-center">{{recipe?.recipeName}}</h5>
+            <p class="text-end">
+              <button class="btn" ><i class="fa-solid fa-trash text-danger"></i></button>
+            </p>
+          </div>
+        </div>
+        }
+   
+   </div>
+   }
+   @else{
+    <h3 class="text-danger">No downloads available</h3>
+   }
+   
+ </div>
+
+</div>
+
+<app-footer/>
+
+<!-- Profile Update Offcanvas -->
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Profile Update</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="d-flex flex-column align-items-center">
+      <label for="inp" class="d-flex justify-content-center">
+        <input type="file" (change)="getFile($event)" name="" id="inp" accept="image/*" style="display: none;">
+        <img [src]="profile" alt="upload" width="50%">
+      </label>
+      <input type="text" [(ngModel)]="username" name="username" class="form-control" >
+      <button class="btn btn-success mt-3" (click)="handleProfileUpdate()">Update</button>
+    </div>
+    
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="bg-success d-flex flex-column text-light gap-3 sidebar-fixed">
+    <h3 class="display-4 mt-5">
+      CooksPedia Admin
+    </h3>
+    <div class="d-flex flex-column gap-3 ps-4">
+      <a routerLink="/admin" class="sidebar-link">
+      <i class="fa-solid fa-chart-bar"></i>
+      Dashboard
+      </a>
+       <a routerLink="/admin/recipes" class="sidebar-link">
+      <i class="fa-solid fa-fire"></i>
+       Recipes
+      </a>
+      <a routerLink="/admin/users" class="sidebar-link">
+      <i class="fa-solid fa-user"></i>
+       Users
+      </a>
+       <a routerLink="/admin/feedbacks" class="sidebar-link">
+      <i class="fa-regular fa-envelope"></i>
+       Feedbacks
+      </a>
+      
+      <span class="text-danger" style="cursor: pointer;" (click)="handleLogout()">
+        <i class="fa-solid fa-power-off"></i>
+        Logout
+      </span>
+    </div>
+    
+</div>
+
+ 
