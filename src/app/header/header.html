@@ -29,9 +29,9 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/contact">Contact</a>
         </li>
-       
       </ul>
-      <div class="dropdown dropstart">
+      <!-- Responsive dropdown: dropstart on lg+, dropdown on smaller screens -->
+      <div class="dropdown d-lg-none">
         <button
           class="btn btn-secondary dropdown-toggle"
           type="button"
@@ -45,6 +45,34 @@
           }
         </button>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+          @if(username){
+             <li><a class="dropdown-item" routerLink="/profile">Profile</a></li>
+              <li><a class="dropdown-item" routerLink="/saved-recipes">Saved-recipes</a></li>
+               <li><button class="btn text-danger" (click)="handleLogout()">Logout</button></li>
+          }
+          @else{
+           <li><a class="dropdown-item" routerLink="/signin">Sign In</a></li>
+          <li><a class="dropdown-item" routerLink="/signup">Sign Up</a></li>
+          }
+         
+        </ul>
+      </div>
+
+      <!-- Dropstart on desktop only -->
+      <div class="dropdown dropstart d-none d-lg-block">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton2"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <i class="fa-solid fa-user" style="color: rgb(99, 230, 190);"></i>
+          @if(username){
+            {{username}}
+          }
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton2">
           @if(username){
              <li><a class="dropdown-item" routerLink="/profile">Profile</a></li>
               <li><a class="dropdown-item" routerLink="/saved-recipes">Saved-recipes</a></li>
