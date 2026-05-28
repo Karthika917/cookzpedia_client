@@ -41,6 +41,23 @@ export class Profile {
     })
   }
 
+ handleDelete(rid: any) {
+   console.log("Deleting recipeId:", rid);
+  this.api.deleteDownloadedRecipesApi(rid).subscribe({
+    next: (res: any) => {
+      this.downloadsList = this.downloadsList.filter(
+        (item: any) => item.recipeId !== rid
+      );
+    },
+    error: (err) => {
+      console.log(err);
+      alert("Delete failed");
+    }
+  });
+}
+
+
+
   getFile(e:any){
     const file=e?.target?.files[0]
     const fr = new FileReader()

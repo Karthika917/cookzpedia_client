@@ -61,6 +61,10 @@ export class Api {
      return this.http.get(`${this.base_url}/get-downloads`,{headers:this.appendHeader()})
   }
 
+  deleteDownloadedRecipesApi(rid:any){
+    return this.http.delete(`${this.base_url}/delete-downloads/${rid}`,{headers:this.appendHeader()})
+  }
+
   profileUpdateApi(data:any){
     return this.http.patch(`${this.base_url}/profile-update`,data,{headers:this.appendHeader()})
   }

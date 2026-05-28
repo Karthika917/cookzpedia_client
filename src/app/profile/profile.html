@@ -33,7 +33,7 @@
           <div class="card-body">
             <h5 class="card-title text-center">{{recipe?.recipeName}}</h5>
             <p class="text-end">
-              <button class="btn" ><i class="fa-solid fa-trash text-danger"></i></button>
+              <button class="btn" ><i class="fa-solid fa-trash text-danger" (click)="handleDelete(recipe?.recipeId)"></i></button>
             </p>
           </div>
         </div>
