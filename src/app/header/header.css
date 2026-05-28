@@ -1,0 +1,19 @@
+/* Dropstart only on lg screens and above */
+@media (min-width: 992px) {
+  .dropstart-lg {
+    position: relative;
+  }
+
+  .dropstart-lg .dropdown-menu {
+    right: 0;
+    left: auto;
+  }
+}
+
+/* On mobile, dropdown opens to the right (default) */
+@media (max-width: 991px) {
+  .dropstart-lg .dropdown-menu {
+    left: 0;
+    right: auto;
+  }
+}
